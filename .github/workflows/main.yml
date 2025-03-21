@@ -38,11 +38,3 @@ jobs:
         run: |
           mv QT_APP/appQT_APP APP
           test -f APP || (echo "Qt application failed to build" && exit 1)
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: built-files
-          path: |
-            APP
-            web-server/
-          retention-days: 7
