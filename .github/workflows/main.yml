@@ -1,0 +1,49 @@
+name: Test project
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y qt6-base-dev-tools qt6-base-dev-tools libusb-1.0-0-dev qt6-declarative-dev
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install npm dependencies
+      working-directory: ./web-server
+      run: |
+        npm install
+
+    - name: Build Qt Application
+      working-directory: ./QT_APP
+      run: |
+        cmake .
+        cmake --build .
+        
+    - name: Verify Qt App Build
+      run: |
+        mv QT_APP/appQT_APP APP
+        test -f APP || (echo "Qt application failed to build" && exit 1)
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: built-files
+        path: |
+          APP
+          web-server/
+        retention-days: 7
