@@ -1,6 +1,6 @@
 ## How to build
 
-#### Quick install & build by using script ####
+#### Quick installation by using a script ####
 
 ```ruby
 curl -fsSL https://raw.githubusercontent.com/D3SXX/QT/refs/heads/main/quick_setup.sh | bash
@@ -18,7 +18,8 @@ git clone https://github.com/D3SXX/QT.git
 
 ```ruby
 sudo apt update
-sudo apt install git nodejs npm qt6-base-dev-tools qt6-base-dev-tools libusb-1.0-0-dev qt6-declarative-dev
+sudo apt install git nodejs npm qt6-base-dev-tools qt6-base-dev-tools libusb-1.0-0-dev qt6-declarative-dev qml6-module-qtquick qml6-module-qtquick-controls
+qml6-module-qtqml-workerscript qml6-module-qtquick-templates cmake pkg-config --yes
 ```
 
 3. Build QT APP
@@ -39,7 +40,7 @@ npm install
 ```
 Done!
 
-#### Usage ####
+## Usage ##
 
 1. Start the Web Server
 

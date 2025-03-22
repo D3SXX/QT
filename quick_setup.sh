@@ -1,5 +1,6 @@
 sudo apt update
-sudo apt install git nodejs npm qt6-base-dev-tools qt6-base-dev-tools libusb-1.0-0-dev qt6-declarative-dev
+sudo apt install git nodejs npm qt6-base-dev-tools qt6-base-dev-tools libusb-1.0-0-dev qt6-declarative-dev qml6-module-qtquick qml6-module-qtquick-controls qml6-module-qtqml-workerscript qml6-module-qtquick-templates cmake pkg-config --yes
+
 if [ -d ./QT ]
     then
         echo "Found QT, skipping git clone"
