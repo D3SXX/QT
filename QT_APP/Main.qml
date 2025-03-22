@@ -98,7 +98,7 @@ Rectangle {
         height: 400
         model: usb.deviceList
         delegate: Rectangle {
-            width: parent.width
+            width: ListView.view.width
             height: 90
             color: "lightgray"
             border.color: "black"

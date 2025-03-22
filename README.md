@@ -6,6 +6,14 @@
 curl -fsSL https://raw.githubusercontent.com/D3SXX/QT/refs/heads/main/quick_setup.sh | bash
 ```
 
+If an error appears, install curl and run the command again
+
+```ruby
+sudo apt update
+sudo apt install curl
+curl -fsSL https://raw.githubusercontent.com/D3SXX/QT/refs/heads/main/quick_setup.sh | bash
+```
+
 #### Manual installation ####
 
 1. Clone the repository:
@@ -28,8 +36,8 @@ qml6-module-qtqml-workerscript qml6-module-qtquick-templates cmake pkg-config --
 cd QT_APP
 cmake .
 cmake --build .
-
 mv appQT_APP ../APP
+cd ..
 ```
 
 4. Build Web Server
@@ -42,16 +50,28 @@ Done!
 
 ## Usage ##
 
-1. Start the Web Server
+1. Go to QT directory
+
+```ruby
+cd QT
+```
+
+2. Start the Web Server
 
 ```ruby
 cd web-server
 npm run start
 ```
-2. Start the APP
+3. Start the APP
 
-Either launch the executable from the UI or from console
+Either launch the executable from the UI or from another terminal
 
 ```ruby
-    ./APP
+./APP
+```  
+
+To get the correct model and vendor data for usb devices, launch APP with root rights (required by libusb)
+
+```ruby
+sudo ./APP
 ```  

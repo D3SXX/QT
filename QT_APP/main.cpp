@@ -98,6 +98,7 @@ int main(int argc, char *argv[])
             }
         } else {
             qDebug() << "Error:" << reply->errorString();
+            QCoreApplication::exit(); // exit QT APP
         }
         
         reply->deleteLater(); // delete the reply object
